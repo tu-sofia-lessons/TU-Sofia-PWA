@@ -1,0 +1,10 @@
+.vscode
+.astro
+.direnv
+dist
+node_moduules
+README.md
+
+.envrc
+flake.nix
+flake.lock

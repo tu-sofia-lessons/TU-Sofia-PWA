@@ -1,0 +1,30 @@
+{
+  "name": "tu-pwa",
+  "type": "module",
+  "version": "0.1.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.1",
+    "@vite-pwa/astro": "^0.4.3",
+    "astro": "^4.15.7",
+    "astro-compressor": "^0.4.1",
+    "astro-robots-txt": "^1.0.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.12",
+    "typescript": "^5.6.2",
+    "vite-plugin-pwa": "^0.20.5"
+  },
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.6"
+  }
+}

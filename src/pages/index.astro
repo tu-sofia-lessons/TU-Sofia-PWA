@@ -19,7 +19,6 @@ const posts = await getCollection('blog');
         posts.map(post => (
           <BlogCard
             slug={post.slug}
-            imgUrl={post.data.heroImage}
             desc={post.data.description}
             title={post.data.title}
           />

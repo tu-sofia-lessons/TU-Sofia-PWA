@@ -3,11 +3,10 @@ import { Icon } from 'astro-icon/components';
 interface Props {
   title: string;
   desc: string;
-  imgUrl?: string;
   slug: string;
 }
 
-const { title, desc, imgUrl, slug } = Astro.props;
+const { title, desc, slug } = Astro.props;
 ---
 
 <li>

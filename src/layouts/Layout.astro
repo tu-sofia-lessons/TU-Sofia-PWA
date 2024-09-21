@@ -1,6 +1,7 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import BaseHead from '../components/BaseHead.astro';
+import UnsupportedSize from '../components/UnsupportedSize.astro';
 
 interface Props {
   title: string;
@@ -19,11 +20,8 @@ const { title, description } = Astro.props;
     <main class="flex-1 flex flex-col px-4 mt-8 md:hidden">
       <slot />
     </main>
-    <div class="hidden md:flex items-center justify-center flex-1">
-      <h1 class="text-5xl font-bold">
-        Sadly the app is not supported on desktop devices :(
-      </h1>
-    </div>
+
+    <UnsupportedSize />
 
     <Navbar />
   </body>

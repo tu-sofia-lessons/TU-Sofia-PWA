@@ -53,7 +53,7 @@
             # LSP
             #typescript
             typescript-language-server
-            #astro-language-server
+            astro-language-server
           ];
         };
       });

@@ -1,5 +1,5 @@
 ---
-import type { GetStaticPaths } from 'astro';
+import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 
 export const meta = {
@@ -9,7 +9,13 @@ export const meta = {
 ---
 
 <Layout title="404" description="Page was not found">
-  <h1>Page not found</h1>
-  <h1>Upps, something is wrong, the requested page not found!</h1>
-  <a href="/">Back home</a>
+  <div class="flex flex-col items-center justify-center flex-1">
+    <div class="text-center">
+      <h1 class="text-6xl font-bold mb-4">404</h1>
+      <h2 class="text-3xl font-semibold mb-4">Страницата не е намерена</h2>
+      <p class="text-xl mb-8">
+        Съжаляваме, но страницата, която търсите, не съществува.
+      </p>
+    </div>
+  </div>
 </Layout>

@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon/components';
+const currentPath = Astro.url.pathname;
+
+console.log(currentPath);
+const navItems = [
+  {
+    iconName: 'calendar',
+    href: '/schedule'
+  },
+  {
+    iconName: 'book',
+    href: '/'
+  },
+  {
+    iconName: 'map',
+    href: '/map'
+  }
+] satisfies {
+  href: string;
+  iconName: string;
+}[];
+---
+
+<nav
+  class="flex h-16 items-stretch justify-center gap-8 [&>a]:px-4 shadow-upper [&_svg]:h-8 [&_svg]:w-8 [&>a]:flex [&>a]:items-center md:hidden bg-primary"
+>
+  {
+    navItems.map(item => (
+      <a
+        href={item.href}
+        class={`flex items-center justify-center h-full w-full ${currentPath === item.href ? 'text-white' : 'text-foreground'}`}
+      >
+        <Icon name={item.iconName} />
+      </a>
+    ))
+  }
+</nav>

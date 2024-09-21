@@ -1,11 +1,13 @@
-import { registerSW } from "virtual:pwa-register";
+import { registerSW } from 'virtual:pwa-register';
 
 registerSW({
   immediate: true,
   onRegisteredSW(swScriptUrl) {
-    console.log("SW registered: ", swScriptUrl);
+    // eslint-disable-next-line no-console
+    console.log('SW registered: ', swScriptUrl);
   },
   onOfflineReady() {
-    console.log("PWA application ready to work offline");
-  },
+    // eslint-disable-next-line no-console
+    console.log('PWA application ready to work offline');
+  }
 });

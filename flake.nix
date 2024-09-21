@@ -30,9 +30,10 @@
             #   / /|  / /_/ / /_/ /  __/ /_/ /___/ / 
             #  /_/ |_/\____/\__,_/\___/\____//____/  
             #                                        
-            Using NodeJS - $(${pkgs.nodejs_20}/bin/node --version)
-            Using pnpm - $(${pkgs.pnpm}/bin/pnpm --version)
-            Using yarn - $(${pkgs.yarn}/bin/yarn --version)
+            NodeJS - $(${pkgs.nodejs_20}/bin/node --version)
+            Npm - $(${pkgs.nodejs_20}/bin/npm --version)
+            Pnpm - $(${pkgs.pnpm}/bin/pnpm --version)
+            Yarn - $(${pkgs.yarn}/bin/yarn --version)
             " | lolcat
           '';
           nativeBuildInputs = with pkgs; [
@@ -44,21 +45,15 @@
 
             # Formatting
             prettierd
-            nodePackages.prettier
 
-            # Checking updates
+            # Additional tools
             nodePackages."npm-check-updates"
-
-            # Purging node_modules
             npkill
 
             # LSP
+            #typescript
             typescript-language-server
-            typescript
-
-            # pkgs.nodePackages.typescript
-            # pkgs.nodePackages.typescript-language-server
-            #biome
+            #astro-language-server
           ];
         };
       });

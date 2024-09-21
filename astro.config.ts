@@ -1,0 +1,85 @@
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import AstroPWA from '@vite-pwa/astro';
+import compressor from 'astro-compressor';
+import icon from 'astro-icon';
+import pagefind from 'astro-pagefind';
+import robotsTxt from 'astro-robots-txt';
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  site: 'https://tu-app.0x7ff.xyz',
+  integrations: [
+    tailwind({ applyBaseStyles: false }),
+    pagefind(),
+    AstroPWA({
+      includeAssets: ['favicon.ico'],
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Astro PWA',
+        short_name: 'Astro PWA',
+        theme_color: '#ffffff',
+        screenshots: [
+          // TODO: Add screenshots
+          {
+            label: 'Application',
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            form_factor: 'wide'
+          },
+          {
+            label: 'Application',
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            form_factor: 'narrow'
+          }
+        ],
+        icons: [
+          {
+            src: 'pwa-64x64.png',
+            sizes: '64x64',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+          //{
+          //  src: "pwa-512x512.png",
+          //  sizes: "512x512",
+          //  type: "image/png",
+          //  purpose: "any maskable",
+          //},
+        ]
+      },
+      workbox: {
+        navigateFallback: '/404',
+        globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}']
+      },
+      devOptions: {
+        enabled: false,
+        navigateFallbackAllowlist: [/^\//]
+      },
+      experimental: {
+        directoryAndTrailingSlashHandler: true
+      }
+    }),
+    sitemap(),
+    robotsTxt({
+      sitemap: true
+    }),
+    icon(),
+    react(),
+    compressor()
+  ]
+});
+

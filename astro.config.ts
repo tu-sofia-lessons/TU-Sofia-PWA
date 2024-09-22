@@ -40,10 +40,18 @@ export default defineConfig({
         screenshots: [
           {
             label: 'Прилочение',
-            src: '/screenshots/application.webp',
+            src: '/screenshots/application-wide.webp',
             sizes: '1200x800',
             type: 'image/webp',
             form_factor: 'wide'
+          },
+
+          {
+            label: 'Прилочение',
+            src: '/screenshots/application-narrow.webp',
+            sizes: '800x1200',
+            type: 'image/webp',
+            form_factor: 'narrow'
           }
         ],
         icons: [

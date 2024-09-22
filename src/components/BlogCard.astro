@@ -2,24 +2,29 @@
 import { Icon } from 'astro-icon/components';
 interface Props {
   title: string;
-  desc: string;
+  thumbnail?: string;
   slug: string;
 }
 
-const { title, desc, slug } = Astro.props;
+const { title, slug, thumbnail } = Astro.props;
 ---
 
 <li>
   <a
     href={`/blog/${slug}/`}
-    class="flex justify-between h-16 rounded-s overflow-hidden shadow-shadow px-4"
+    class="flex justify-between h-24 rounded-s overflow-hidden shadow-shadow pl-4 bg-white items-center text-balance gap-8"
   >
-    <div class="flex flex-col">
-      <h4 class="text-xl text-foreground font-semibold">{title}</h4>
-      <p class="text-sm text-muted-foreground">{desc}</p>
-    </div>
-    <div class="h-full w-8 flex items-center justify-center mt-auto">
-      <Icon name="open" class="w-8 h-8" />
-    </div>
+    <h4 class="text-foreground font-semibold">{title}</h4>
+    {
+      thumbnail && (
+        <img
+          transition:name={thumbnail}
+          src={thumbnail}
+          alt={title}
+          class="w-24 h-24 rounded-s object-cover"
+        />
+      )
+    }
+    <!--<Icon name="open" class="w-8 h-8" />-->
   </a>
 </li>

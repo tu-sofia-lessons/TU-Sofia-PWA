@@ -7,23 +7,17 @@ import BlogCard from '../components/BlogCard.astro';
 
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog');
+const posts = (await getCollection('blog')).sort((a, b) => {
+  return b.data.order < a.data.order ? 1 : -1;
+});
 ---
 
-<Layout title="TU - Sofia PWA" description="TU - Sofia PWA">
-  <section class="pt-8 flex flex-col gap-8">
+<Layout title="TU - Sofia" description="Приложение за TU - Sofia">
+  <section class="pt-8 flex flex-col gap-8 px-4 pb-4">
     <Image src={logo} alt="logo" class="mx-auto" class="h-16 w-16 mx-auto" />
     <Search id="search" uiOptions={{ showImages: false }} />
     <ul class="flex flex-col gap-4">
-      {
-        posts.map(post => (
-          <BlogCard
-            slug={post.slug}
-            desc={post.data.description}
-            title={post.data.title}
-          />
-        ))
-      }
+      {posts.map(post => <BlogCard slug={post.slug} {...post.data} />)}
     </ul>
   </section>
 </Layout>

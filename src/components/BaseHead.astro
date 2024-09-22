@@ -1,10 +1,8 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import '@/styles/globals.css';
 import '@fontsource/roboto';
 
-console.log('hello');
+import { ViewTransitions } from 'astro:transitions';
 import { pwaInfo } from 'virtual:pwa-info';
 
 interface Props {
@@ -17,6 +15,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
+
+<!--Astro view transitions-->
+<ViewTransitions />
 
 <!--misc -->
 <meta name="generator" content={Astro.generator} />

@@ -1,8 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
-const currentPath = Astro.url.pathname;
 
-console.log(currentPath);
+const currentPath = Astro.url.pathname;
 const navItems = [
   {
     iconName: 'calendar',
@@ -14,25 +13,47 @@ const navItems = [
   },
   {
     iconName: 'map',
-    href: '/map'
+    href: '/map/map'
   }
 ] satisfies {
   href: string;
   iconName: string;
 }[];
+
+function isActiveRoute(itemHref: string, currentPath: string): boolean {
+  if (itemHref === '/') {
+    return currentPath === '/' || currentPath.startsWith('/blog');
+  }
+  if (itemHref === '/map/map') {
+    itemHref = itemHref.slice(0, 4);
+  }
+  return currentPath.startsWith(itemHref);
+}
 ---
 
 <nav
-  class="flex h-16 items-stretch justify-center gap-8 [&>a]:px-4 shadow-upper [&_svg]:h-8 [&_svg]:w-8 [&>a]:flex [&>a]:items-center md:hidden bg-primary"
+  class="fixed bottom-0 left-0 right-0 flex h-16 items-stretch justify-center gap-8 frosted-glass [&>a]:px-4 [&_svg]:h-8 [&_svg]:w-8 [&>a]:flex [&>a]:items-center md:hidden"
 >
   {
     navItems.map(item => (
       <a
         href={item.href}
-        class={`flex items-center justify-center h-full w-full ${currentPath === item.href ? 'text-white' : 'text-foreground'}`}
+        class={`flex items-center justify-center h-full w-full ${isActiveRoute(item.href, currentPath) ? 'text-blue-400' : 'text-slate-400'}`}
       >
         <Icon name={item.iconName} />
       </a>
     ))
   }
 </nav>
+
+<style>
+  nav {
+    z-index: 1000;
+  }
+
+  @supports not (backdrop-filter: blur(10px)) {
+    .frosted-glass {
+      background: rgba(255, 255, 255, 0.9);
+    }
+  }
+</style>

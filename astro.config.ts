@@ -16,25 +16,34 @@ export default defineConfig({
     AstroPWA({
       includeAssets: ['favicon.ico'],
       registerType: 'autoUpdate',
+
       manifest: {
-        name: 'Astro PWA',
-        short_name: 'Astro PWA',
-        theme_color: '#ffffff',
+        short_name: 'ТУ - София',
+        name: 'Технически Университет',
+        description: 'Технически Университет - София',
+        scope: '/',
+        start_url: '/',
+        display: 'standalone',
+        display_override: ['fullscreen', 'minimal-ui'],
+        background_color: '#0F0F0F',
+        theme_color: '#0F0F0F',
+        categories: ['education', 'documentation', 'university'],
+        orientation: 'natural',
+        dir: 'ltr',
+        lang: 'bg',
+        related_applications: [
+          {
+            platform: 'Приложение',
+            url: 'https://tu-sofia-pwa.0x7ff.xyz/manifest.webmanifest'
+          }
+        ],
         screenshots: [
-          // TODO: Add screenshots
           {
-            label: 'Application',
-            src: '/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
+            label: 'Прилочение',
+            src: '/screenshots/application.webp',
+            sizes: '1200x800',
+            type: 'image/webp',
             form_factor: 'wide'
-          },
-          {
-            label: 'Application',
-            src: '/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            form_factor: 'narrow'
           }
         ],
         icons: [
@@ -52,13 +61,13 @@ export default defineConfig({
             src: 'pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
           }
-          //{
-          //  src: "pwa-512x512.png",
-          //  sizes: "512x512",
-          //  type: "image/png",
-          //  purpose: "any maskable",
-          //},
         ]
       },
       workbox: {
@@ -82,4 +91,3 @@ export default defineConfig({
     compressor()
   ]
 });
-

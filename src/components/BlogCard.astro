@@ -16,8 +16,12 @@ const { title, thumbnail, slug } = Astro.props;
       thumbnail && (
         <Image
           height={96}
+          widths={[96, thumbnail.width]}
+          quality={80}
+          format="webp"
           loading="lazy"
           decoding="async"
+          sizes={`96px`}
           width={96}
           transition:name={title}
           src={thumbnail.src}

@@ -1,24 +1,21 @@
 ---
-interface Props {
-  title: string;
-  thumbnail?: string;
-  slug: string;
-}
+import type { CollectionEntry } from 'astro:content';
 
-const { title, slug, thumbnail } = Astro.props;
+type Props = CollectionEntry<'blog'>['data'] & { slug: string };
+const { title, thumbnail, slug } = Astro.props;
 ---
 
 <li>
   <a
-    href={`/blog/${slug}/`}
-    class="flex justify-between h-24 rounded-s overflow-hidden shadow-shadow pl-4 bg-white items-center text-balance gap-8"
+    href={`/blog/${slug}`}
+    class="flex justify-between h-24 rounded-s overflow-hidden shadow pl-4 bg-white items-center text-balance gap-8"
   >
     <h4 class="text-foreground font-semibold">{title}</h4>
     {
       thumbnail && (
         <img
-          transition:name={thumbnail}
-          src={thumbnail}
+          transition:name={title}
+          src={thumbnail.src}
           alt={title}
           class="w-24 h-24 rounded-s object-cover"
         />

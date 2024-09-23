@@ -51,7 +51,7 @@ export default function Component() {
   };
 
   return (
-    <div className="bg-gray-100 p-4">
+    <div className="bg-gray-100 p-4" data-pagefind-ignore="all">
       <Card className="w-full max-w-md mx-auto">
         <CardHeader className="pb-2">
           <CardTitle>Карта и локации</CardTitle>

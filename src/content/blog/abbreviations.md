@@ -1,7 +1,7 @@
 ---
 title: 'Често използвани съкращения'
-thumbnail: '/assets/01.jpg'
-description: 'Lorem ipsum dolor sit amet'
+thumbnail: '../../assets/blog-content/abbreviations/splash.webp'
+description: 'Списък с често използвани съкращения на комисии, факултети и департаменти в Техническия университет – София, за улеснение на студентите и преподавателите.'
 order: 9
 ---
 

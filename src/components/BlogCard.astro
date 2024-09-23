@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string };
 const { title, thumbnail, slug } = Astro.props;
@@ -13,7 +14,11 @@ const { title, thumbnail, slug } = Astro.props;
     <h4 class="text-foreground font-semibold">{title}</h4>
     {
       thumbnail && (
-        <img
+        <Image
+          height={96}
+          loading="lazy"
+          decoding="async"
+          width={96}
           transition:name={title}
           src={thumbnail.src}
           alt={title}

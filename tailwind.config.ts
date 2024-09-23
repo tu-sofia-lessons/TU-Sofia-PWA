@@ -1,18 +1,11 @@
+import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   prefix: '',
   theme: {
-    container: {
-      center: 'true',
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px'
-      }
-    },
     extend: {
       fontFamily: {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans]
@@ -87,22 +80,13 @@ export default {
           to: {
             height: '0'
           }
-        },
-        shimmer: {
-          from: {
-            backgroundPosition: '0 0'
-          },
-          to: {
-            backgroundPosition: '-200% 0'
-          }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        shimmer: 'shimmer 2s linear infinite'
+        'accordion-up': 'accordion-up 0.2s ease-out'
       }
     }
   },
   plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')]
-};
+} satisfies Config;

@@ -25,7 +25,6 @@
     "@types/react-dom": "^18.3.0",
     "@vite-pwa/astro": "^0.4.3",
     "astro": "^4.15.7",
-    "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.1",
     "astro-pagefind": "^1.6.0",
     "astro-robots-txt": "^1.0.0",

@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BuildingItem from '../../components/BuildingItem.astro';
+
+type Building = {
+  label: string;
+  description: string;
+  googleMapsLink: string;
+  qrCodeImageSrc: string;
+};
+
+const buildings = [
+  {
+    label: 'Building 1',
+    description: 'Building 1 description',
+    googleMapsLink:
+      'https://www.google.com/maps/place/Technical+University/@42.6570438,23.3528038,17z/data=!3m1!4b1!4m6!3m5!1s0x40aa842791548ce7:0x5c3a3691d990d279!8m2!3d42.6570438!4d23.3553787!16zL20vMGNzNndf?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D',
+    qrCodeImageSrc: '/assets/page-content/qr-codes/1.png'
+  },
+  {
+    label: 'Building 2',
+    description: 'Building 2 description',
+    googleMapsLink: 'https://goo.gl/maps/2',
+    qrCodeImageSrc: '/assets/page-content/qr-codes/2.png'
+  },
+  {
+    label: 'Building 3',
+    description: 'Building 3 description',
+    googleMapsLink: 'https://goo.gl/maps/3',
+    qrCodeImageSrc: '/assets/page-content/qr-codes/3.png'
+  }
+] satisfies Building[];
+---
+
+<Layout title="Maps" description="google maps of tu sofia">
+  <section class="p-4 flex flex-col gap-8">
+    <h1 class="font-bold text-3xl">Карта и локации 🧭</h1>
+
+    <ul class="flex flex-col gap-2">
+      {buildings.map(building => <BuildingItem {...building} />)}
+    </ul>
+  </section>
+</Layout>

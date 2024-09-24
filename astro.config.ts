@@ -9,13 +9,15 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://tu-sofia-pwa.0x7ff.xyz',
+  build: {
+    format: 'file'
+  },
   integrations: [
     tailwind({ applyBaseStyles: false }),
     pagefind(),
     AstroPWA({
       includeAssets: ['favicon.ico'],
       registerType: 'autoUpdate',
-
       manifest: {
         short_name: 'ТУ - София',
         name: 'Технически Университет',
@@ -94,6 +96,8 @@ export default defineConfig({
       sitemap: true
     }),
     icon(),
-    react()
+    react({
+      experimentalReactChildren: true
+    })
   ]
 });

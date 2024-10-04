@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import logo from '../assets/tu-logo.svg';
 import Layout from '../layouts/Layout.astro';
-import Search from 'astro-pagefind/components/Search';
 import BlogCard from '../components/BlogCard.astro';
 
 import { getCollection } from 'astro:content';
@@ -12,10 +11,13 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 });
 ---
 
-<Layout title="TU - Sofia" description="Приложение за TU - Sofia">
-  <section class="pt-8 flex flex-col gap-8 px-4 pb-4">
+<Layout
+  title="TU - Sofia"
+  description="Приложение за TU - Sofia"
+  padding={true}
+>
+  <section class="pt-8 flex flex-col gap-8">
     <Image src={logo} alt="logo" class="mx-auto" class="h-16 w-16 mx-auto" />
-    <Search id="search" uiOptions={{ showImages: false }} />
     <ul class="flex flex-col gap-4">
       {posts.map(post => <BlogCard slug={post.slug} {...post.data} />)}
     </ul>

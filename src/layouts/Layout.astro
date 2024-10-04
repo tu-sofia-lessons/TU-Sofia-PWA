@@ -6,9 +6,10 @@ import UnsupportedSize from '../components/UnsupportedSize.astro';
 interface Props {
   title: string;
   description: string;
+  padding?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, padding } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +20,9 @@ const { title, description } = Astro.props;
   <body
     class="flex min-h-[100svh] flex-col text-foreground bg-[url('/background.webp')] bg-fixed bg-no-repeat bg-cover"
   >
-    <main class="flex-1 flex flex-col md:hidden pb-16">
+    <main
+      class={`flex-1 flex flex-col md:hidden pb-20 ${padding ? 'p-4' : ''}`}
+    >
       <slot />
     </main>
 

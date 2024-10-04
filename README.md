@@ -2,7 +2,6 @@
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/medium.svg)](https://astro.build)
 
-
 ![just-the-basics](https://forgejo.0x7ff.xyz/Fractal-Tess/Tu-Sofia-PWA/raw/branch/main/.github/application.webp)
 
 ## 🚀 Project Structure
@@ -13,7 +12,7 @@ Inside of your Astro project, you'll see the following folders and files:
 .
 ├── src
 │  ├── assets -- Mostly static assets (located in src instead of public because of optimizations)
-│  ├── components -- UI components (astro/react)
+│  ├── components -- UI components (astro)
 │  ├── content -- Blog items
 │  ├── icons -- SVG icons for the 'astro-svg' integration
 │  ├── layouts -- The base Layout and BlogLayout files are located here
@@ -25,12 +24,13 @@ Inside of your Astro project, you'll see the following folders and files:
 │  └── vite-env.d.ts -- Types
 ├── astro.config.ts -- AStro config
 ```
-##  Commands
+
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
+| Command                    | Action                                           |
+| :------------------------- | :----------------------------------------------- |
 | `pnpm install`             | Installs dependencies                            |
 | `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm run build`           | Build your production site to `./dist/`          |

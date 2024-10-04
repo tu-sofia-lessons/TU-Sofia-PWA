@@ -1,9 +1,7 @@
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import AstroPWA from '@vite-pwa/astro';
 import icon from 'astro-icon';
-import pagefind from 'astro-pagefind';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 
@@ -11,7 +9,7 @@ export default defineConfig({
   site: 'https://tu-sofia-pwa.0x7ff.xyz',
   integrations: [
     tailwind({ applyBaseStyles: false }),
-    pagefind(),
+    icon(),
     AstroPWA({
       includeAssets: ['favicon.ico'],
       registerType: 'autoUpdate',
@@ -92,8 +90,6 @@ export default defineConfig({
     sitemap(),
     robotsTxt({
       sitemap: true
-    }),
-    icon(),
-    react()
+    })
   ]
 });

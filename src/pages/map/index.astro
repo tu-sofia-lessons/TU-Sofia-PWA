@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { Location } from '../../lib/types';
+import LocationItem from '../../components/LocationItem.astro';
+
+import block1 from '../../assets/maps/qrcodes/block1.png';
+import block2 from '../../assets/maps/qrcodes/block2.png';
+import block3 from '../../assets/maps/qrcodes/block3.png';
+import block4 from '../../assets/maps/qrcodes/block4.png';
+import block8 from '../../assets/maps/qrcodes/block8.png';
+import block9 from '../../assets/maps/qrcodes/block9.png';
+import block10 from '../../assets/maps/qrcodes/block10.png';
+import block11 from '../../assets/maps/qrcodes/block11.png';
+import block12 from '../../assets/maps/qrcodes/block12.png';
+import block13 from '../../assets/maps/qrcodes/block13.png';
+
+import sportCenter from '../../assets/maps/qrcodes/sport-center.png';
+import library from '../../assets/maps/qrcodes/library.png';
+import unite from '../../assets/maps/qrcodes/UNITE.png';
+import centerForIntMeetings from '../../assets/maps/qrcodes/UNITE.png';
+
+const locations = [
+  {
+    label: 'Блок 1',
+    googleMapsLink: 'https://maps.app.goo.gl/rnLdtWWB3UE6C9ny8',
+    qrCodeImage: block1
+  },
+  {
+    label: 'Блок 2',
+    googleMapsLink: 'https://maps.app.goo.gl/ne89Z7GgvjYdkPA2A',
+    qrCodeImage: block2
+  },
+  {
+    label: 'Блок 3',
+    googleMapsLink: 'https://maps.app.goo.gl/aFpAGh5ZunUmCQ4k9',
+    qrCodeImage: block3
+  },
+  {
+    label: 'Блок 4',
+    googleMapsLink: 'https://maps.app.goo.gl/Y542sKie5zt1d9eG8',
+    qrCodeImage: block4
+  },
+  {
+    label: 'Блок 8',
+    googleMapsLink: 'https://maps.app.goo.gl/LizVow9pC2FXnpWy7',
+    qrCodeImage: block8
+  },
+  {
+    label: 'Блок 9',
+    googleMapsLink: 'https://maps.app.goo.gl/CHdd7ZLsrs2Xe4wZ8',
+    qrCodeImage: block9
+  },
+  {
+    label: 'Блок 10',
+    googleMapsLink: 'https://maps.app.goo.gl/EH6fKtG9GxaFPjZg7',
+    qrCodeImage: block10
+  },
+  {
+    label: 'Блок 11',
+    googleMapsLink: 'https://maps.app.goo.gl/WJrGiWjsVRZ7rwpR6',
+    qrCodeImage: block11
+  },
+  {
+    label: 'Блок 12',
+    googleMapsLink: 'https://maps.app.goo.gl/EGa88xbxWDYDvnmw5',
+    qrCodeImage: block12
+  },
+  {
+    label: 'Блок 13',
+    googleMapsLink: 'https://maps.app.goo.gl/tbv5Di8rwxLEsH6B6',
+    qrCodeImage: block13
+  },
+  {
+    label: 'Спортен център',
+    googleMapsLink: 'https://maps.app.goo.gl/Y1rGnNF7gbi7aP2NA',
+    qrCodeImage: sportCenter
+  },
+  {
+    label: 'Библиотека',
+    googleMapsLink: 'https://maps.app.goo.gl/JNkW18VNHMVA86Ln8',
+    qrCodeImage: library
+  },
+  {
+    label: 'Център за международни срещи',
+    googleMapsLink: 'https://maps.app.goo.gl/3k6QvdxpswUdZN2A8',
+    qrCodeImage: centerForIntMeetings
+  },
+  {
+    label: 'УНИТЕ',
+    googleMapsLink: 'https://maps.app.goo.gl/rg2qDx2u87nxgy9r6',
+    qrCodeImage: unite
+  }
+] satisfies Location[];
+---
+
+<Layout
+  title="Локации на блокове"
+  description="Може да намерите информация за местоположението на блокове и сгради на техническия университет"
+  padding={true}
+>
+  <section class="flex flex-col gap-4">
+    <h1 class="text-2xl font-bold mx-auto">Локации на блокове</h1>
+    <ul class="flex flex-col gap-4">
+      {locations.map(location => <LocationItem {...location} />)}
+    </ul>
+  </section>
+</Layout>

@@ -6,13 +6,7 @@
       "astro/client",
       "vite-plugin-pwa/vanillajs",
       "vite-plugin-pwa/info"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*":["./src/*"]
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    ]
   },
   "exclude": ["node_modules", ".astro", "dist"]
 }

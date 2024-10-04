@@ -1,0 +1,114 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Location } from '../lib/types';
+import { Image } from 'astro:assets';
+
+type Props = Location;
+const { qrCodeImage, label, googleMapsLink } = Astro.props;
+
+const dialogId = `qrcode-dialog-${label}`;
+---
+
+<li class="rounded-md shadow p-4 flex items-center justify-between bg-white">
+  <div>
+    <h3 class="text-lg font-bold">{label}</h3>
+  </div>
+  <div class="flex gap-4 items-center">
+    <button data-share-url={googleMapsLink} data-share-title={label}>
+      <Icon name="share" class="h-6 w-6" />
+    </button>
+    <a href={googleMapsLink}>
+      <Icon name="map" class="h-6 w-6" />
+    </a>
+    <button data-open data-for-dialogId={dialogId}>
+      <Icon name="qrcode" class="h-6 w-6" />
+    </button>
+  </div>
+</li>
+
+<dialog id={dialogId} class="space-y-4 px-4 py-2 rounded-md shadow">
+  <h3 class="font-bold text-lg">
+    QR код на "{label}" в Google Maps
+  </h3>
+  <Image src={qrCodeImage} alt="QR code" />
+</dialog>
+
+<script>
+  const dialogOpenButtons = document.querySelectorAll('[data-open]');
+  const dialogCloseButtons = document.querySelectorAll('[data-close]');
+
+  for (const button of dialogOpenButtons) {
+    button.addEventListener('click', () => {
+      const dialogId = button.getAttribute('data-for-dialogId')!;
+      const dialog = document.getElementById(dialogId)! as HTMLDialogElement;
+      dialog.showModal();
+    });
+  }
+  for (const button of dialogCloseButtons) {
+    button.addEventListener('click', () => {
+      const dialogId = button.getAttribute('data-for-dialogId')!;
+      const dialog = document.getElementById(dialogId)! as HTMLDialogElement;
+      dialog.close();
+    });
+  }
+
+  document.addEventListener('click', event => {
+    if (!event.target || !(event.target instanceof HTMLDialogElement)) return;
+    event.target.close();
+  });
+
+  const shareButtons = document.querySelectorAll('[data-share-url]');
+  for (const button of shareButtons) {
+    button.addEventListener('click', async () => {
+      const shareData = {
+        title: `Локация: ${button.getAttribute('data-share-title')}`,
+        url: button.getAttribute('data-share-url')!
+      };
+
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        alert('Sharing not supported');
+      }
+    });
+  }
+</script>
+
+<style>
+  dialog[open] {
+    opacity: 1;
+  }
+
+  dialog {
+    opacity: 0;
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out,
+      overlay 0.7s ease-out allow-discrete,
+      display 0.7s ease-out allow-discrete;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgb(0 0 0 / 0%);
+    transition:
+      display 0.7s allow-discrete,
+      overlay 0.7s allow-discrete,
+      background-color 0.7s;
+  }
+
+  dialog[open]::backdrop {
+    background-color: rgb(0 0 0 / 25%);
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      background-color: rgb(0 0 0 / 0%);
+    }
+  }
+</style>

@@ -92,6 +92,10 @@
     @apply border-border;
   }
 
+  * {
+    scrollbar-width: thin;
+  }
+
   .frosted-glass {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(5px);

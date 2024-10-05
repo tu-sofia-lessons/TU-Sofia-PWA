@@ -2,7 +2,7 @@
 
 [![Built with Astro](https://astro.badg.es/v2/built-with-astro/medium.svg)](https://astro.build)
 
-![application splash]([https://forgejo.0x7ff.xyz/Fractal-Tess/Tu-Sofia-PWA/raw/branch/main/.github/application.webp](https://raw.githubusercontent.com/tu-sofia-lessons/TU-Sofia-PWA/refs/heads/main/.github/application.webp))
+![application splash](https://raw.githubusercontent.com/tu-sofia-lessons/TU-Sofia-PWA/refs/heads/main/.github/application.webp)
 
 ## 🚀 Project Structure
 

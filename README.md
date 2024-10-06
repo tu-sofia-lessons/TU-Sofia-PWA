@@ -9,14 +9,13 @@
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
-.
 ├── src
 │  ├── assets -- Mostly static assets (located in src instead of public because of optimizations)
-│  ├── components -- UI components (astro)
+│  ├── components -- UI components
 │  ├── content -- Blog items
 │  ├── icons -- SVG icons for the 'astro-svg' integration
-│  ├── layouts -- The base Layout and BlogLayout files are located here
-│  ├── lib -- Lib folder containing helpful utils for the application
+│  ├── layouts -- UI Layout files
+│  ├── lib -- Lib folder containing helpful utils and types for the application
 │  ├── pages -- The routes as files system
 │  ├── styles -- Contains main css file and tailwind classes
 │  ├── env.d.ts -- Types
